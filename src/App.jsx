@@ -37,7 +37,8 @@ function App() {
         },
       });
 
-      const aiResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"];
+      /* const aiResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"]; */
+      const aiResponse = response.data.candidates[0].content.parts[0].text;
       setChatHistory(prev => [...prev, { type: 'answer', content: aiResponse }]);
       setAnswer(aiResponse);
     } catch (error) {
