@@ -30,15 +30,15 @@ function App() {
     
     try {
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyAtdSgqzF5bfTB-tDnnh5qAXkR_FdT7Lls,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAtdSgqzF5bfTB-tDnnh5qAXkR_FdT7Lls`,
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
         },
       });
 
-      /* const aiResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"]; */
-      const aiResponse = response.data.candidates[0].content.parts[0].text;
+       const aiResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"]; 
+      // const aiResponse = response.data.candidates[0].content.parts[0].text;
       setChatHistory(prev => [...prev, { type: 'answer', content: aiResponse }]);
       setAnswer(aiResponse);
     } catch (error) {
